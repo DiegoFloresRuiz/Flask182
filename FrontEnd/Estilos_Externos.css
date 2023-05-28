@@ -3,7 +3,7 @@
     list-style: none;
     padding: 0;
     background: #012b12;
-    width: 100%;
+    width: 70%;
     max-width: 500px;
     margin: auto;
     border-radius: 25px;
@@ -12,17 +12,16 @@
     list-style: none;
     padding: 0;
     background: #012b12;
-    width: 62%;
-    max-width: 3000px;
+    width: 61.9%;
     margin: auto;
-    border-radius: 25px;
+    border-radius: 26px;
 }   
 .menuP li a{
     text-decoration: none;
     color: white;
-    padding: 24px;
+    padding: 30px;
     display: block;
-    border-radius: 25px;
+    border-radius: 26px;
 
 }
 
