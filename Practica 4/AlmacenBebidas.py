@@ -20,7 +20,7 @@ def agregar_bebida():
     print("Bebida agregada correctamente.")
 
 def eliminar_bebida():
-    id = input("Ingrese el ID de la bebida a eliminar: ")
+    id = input("Ingrese el ID de la bebida que quieres eliminar: ")
     bebida_encontrada = None
     for bebida in bebidas:
         if bebida.id == id:
@@ -88,7 +88,7 @@ def cantidad_bebidas_clasificacion():
     print(f"Cantidad de bebidas de la clasificación {clasificacion}: {cantidad}")
 
 def mostrar_menu():
-    print("---- Almacén de Bebidas ----")
+    print("**** Almacén de Bebidas ****")
     print("1. Agregar bebida")
     print("2. Eliminar bebida")
     print("3. Actualizar bebida")
