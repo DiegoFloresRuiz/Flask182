@@ -67,7 +67,6 @@ def mostrar_bebidas():
             print(f"Clasificación: {bebida.clasificacion}")
             print(f"Marca: {bebida.marca}")
             print(f"Precio: {bebida.precio}")
-            print("----------------------")
 
 def calcular_precio_promedio():
     if not bebidas:
