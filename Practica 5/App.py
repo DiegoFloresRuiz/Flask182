@@ -1,10 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect,url_for,flash
+# redirect,url_for se hace un redireccionamineto 
+from flask_mysqldb import MySQL
+
 #inicialisacion del servidor flask
 app= Flask(__name__)
 app.config['MYSQL_HOST']="localhost"
 app.config['MYSQL_USER']="root"
 app.config['MYSQL_PASSWORD']=""
-app.config['MYSQL_BD']="bdflask"
+app.config['MYSQL_DB']="dbflask"
+
+app.secret_key = 'mysecretkey'
+mysql = MySQL (app)
+
 
 
 
@@ -20,13 +27,16 @@ def index(): #def y dentro del def la logica
 @app.route('/guardar', methods=['POST']) 
 def guardar():
     if request.method == 'POST':
-        titulo = request.form['txtTitulo']
-        artista = request.form['txtArtista']
-        anio = request.form['txtAnio']
-        print(titulo,artista,anio)
-    
-
-    return "La informacion del Album llego a su ruta :)"
+        Vtitulo = request.form['txtTitulo']
+        Vartista = request.form['txtArtista']
+        Vanio = request.form['txtAnio']
+        #print(titulo,artista,anio)
+        CS= mysql.connection.cursor() #variable cursosr y coeccion a la bd 
+        CS.execute('insert into albums(titulo,artista,anio) values (%s,%s,%s)',(Vtitulo, Vartista, Vanio)) #Se pasan los parametros 
+        mysql.connection.commit()
+        
+    flash('Album Agregado Correctamente') #manda un mensaje junto con la vista 
+    return redirect(url_for('index'))
 
 @app.route('/eliminar') 
 def eliminar(): 
