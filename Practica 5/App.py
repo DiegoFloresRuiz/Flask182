@@ -20,7 +20,13 @@ mysql = MySQL (app)
 # Ruta Index https://localhost:5000/
 @app.route('/') # Declaras una ruta ('nombre')
 def index(): #def y dentro del def la logica 
-    return render_template('index.html')
+    #mostrar jalar datos de BD
+    curSelect = mysql.connection.cursor()
+    curSelect.execute('select * from albums')
+    consulta = curSelect.fetchall()
+    #print(consulta)
+
+    return render_template('index.html', listAlbums=consulta) # ver en vista
 
 
 
