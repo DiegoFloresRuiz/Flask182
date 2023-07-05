@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrar Album</title>
+    <title>Eliminar Album</title>
 </head>
 <body>  
     <center>
     <br>
-    <h1> Actualizar Album </h1>
+    <h1> Eliminar Album </h1>
     <br>
     <br>
 
-    <form action="/actualizar/{{ album.0 }}" method="POST">
+    <form action="/borrar/{{ album.0 }}" method="POST">
 
         <input type="text" name="txtTitulo" value="{{ album.1 }}">
         <input type="text" name="txtArtista" value="{{ album.2 }}">
         <input type="number" name="txtAnio" value="{{ album.3 }}">
     
-        <button type="submit"> Actualizar </button>
+        <button type="submit"> Eliminar </button>
     </form>
 </center>
 
