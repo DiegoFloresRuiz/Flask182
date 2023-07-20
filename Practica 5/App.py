@@ -72,28 +72,31 @@ def actualizar(id):
     return redirect(url_for('index'))
 
 
+
 @app.route('/borrar/<id>')
 def borrar(id):
+    # Consultar el registro a eliminar
     curBorrar = mysql.connection.cursor()
-    curBorrar.execute('select * from albums where id = %s ', (id,))
+    curBorrar.execute('SELECT * FROM albums WHERE id = %s', (id,))
     consultId = curBorrar.fetchone()
-    return render_template('Borrar.html', album= consultId)
-    
 
-@app.route('/Eliminar/<id>', methods=['POST'])
-def Eliminar(id):
-    if request.method == 'POST':
-        Vtitulo = request.form['txtTitulo']
-        Vartista = request.form['txtArtista']
-        Vanio = request.form['txtAnio']
+    # Renderizar la plantilla para confirmar la eliminación
+    return render_template('borrar.html', album=consultId)
 
-        curEli= mysql.connection.cursor()
-        curEli.execute('delete albums where id = %s', (id))
-        mysql.connection.commit() 
+@app.route('/eliminar/<id>', methods=['POST'])
+def eliminar(id):
+    # Obtener la confirmación de eliminación desde el formulario
+    respuesta = request.form['respuesta']
 
-    flash('Album Actualizado en la BD') #manda un mensaje junto con la vista 
-    return redirect(url_for('index'))
+    if respuesta.lower() == 's':
+        # Ejecutar la consulta para eliminar el registro
+        curEliminar = mysql.connection.cursor()
+        curEliminar.execute('DELETE FROM albums WHERE id = %s', (id,))
+        mysql.connection.commit()
 
+        return redirect(url_for('index'))
+    else:
+        return redirect(url_for('index'))
 
 # Ejecutan el servidor 
 if __name__=='__main__':

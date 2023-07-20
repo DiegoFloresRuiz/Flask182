@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD ALBUMS</title>
+
+</head>
+
+
+<body>
+    <br>
+    <br>
+ <center><h1>Fruteria</h1>
+    <br>
+    <form action="/Guardar" method="post">
+
+        <input type="text" name="txtFruta" placeholder="Fruta">
+        <input type="text" name="txtTemporada" placeholder="Temporada ">
+        <input type="number" name="txtPrecio" placeholder="Precio">
+        <input type="number" name="txtStock" placeholder="Stock">
+
+        <button type="submit">Guargar </button>
+    </form>
+    <br>
+    <br>
+
+    <form>
+        <button type="button"> Ingresar fruta</button>
+        <a href="{{ url_for('consultar') }}"></a><button type="button"> Consultar</button></a>
+        <button type="button"> Actualizar</button>
+        <button type="button"> Consulta Unitaria </button>
+    </form>
+  </center>
+
+  {% with mensajes= get_flashed_messages() %}
+  {% if mensajes %}
+    {% for msj in mensajes %}
+      <h3>{{ msj }}</h3>
+    {% endfor %}
+  {% endif %}
+ {%endwith%}
+    
+</body>
+</html>

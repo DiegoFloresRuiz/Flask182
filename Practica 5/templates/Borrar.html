@@ -12,23 +12,19 @@
     <br>
     <br>
 
-    <form action="/borrar/{{ album.0 }}" method="POST">
-
-        <input type="text" name="txtTitulo" value="{{ album.1 }}">
-        <input type="text" name="txtArtista" value="{{ album.2 }}">
-        <input type="number" name="txtAnio" value="{{ album.3 }}">
+    <h1>Confirmar eliminación del álbum:</h1>
+    <p>Título: {{ album[1] }}</p>
+    <p>Artista: {{ album[2] }}</p>
     
-        <button type="submit"> Eliminar </button>
+    <form action="/eliminar/{{ album[0] }}" method="POST">
+      <p>¿Estás seguro de que deseas eliminar este álbum?</p>
+      <input type="hidden" name="respuesta" value="s">
+      <input type="submit" value="Sí">
     </form>
-</center>
-
-{% with mensajes= get_flashed_messages() %}
-{% if mensajes %}
-  {% for msj in mensajes %}
-    <h3>{{ msj }}</h3>
-  {% endfor %}
-{% endif %}
-{%endwith%}
-
+    
+    <form action="/" method="GET">
+      <input type="submit" value="No">
+    </form>
+      
 </body>
 </html>
