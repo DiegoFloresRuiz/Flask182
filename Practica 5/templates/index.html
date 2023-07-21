@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html charset="UTF-8">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD ALBUMS</title>
-
-</head>
+{%extends 'plantilla.html'%}
+{%block body%}
+    
 
 
-<body>
-    <br>
-    <br>
-    <center><h1>Gestion de Albums</h1>
-    <br>
+
+
+ 
+<h1>Gestion de Albums</h1>
     <form action="/guardar" method="post">
         <input type="text" name="txtTitulo" placeholder="Escribe Titulo">
         <input type="text" name="txtArtista" placeholder="Escribe Artista">
@@ -20,10 +14,16 @@
         <button type="submit">Guargar </button>
     </form>
  
-    <br>
-    <br>
+
     <h1>Albums Guardados</h1>
-    <br>
+
+    <div class="row">
+      <div class="col-md-5"></div>
+      <div class="col-md-7"></div>
+    </div>
+
+
+
     <table border="1">
       <thead>
         <tr>
@@ -48,7 +48,6 @@
         {%endfor%}
       </tbody>
     </table>
-  </center>
    
 
 
@@ -60,5 +59,5 @@
       {% endfor %}
     {% endif %}
    {%endwith%}
-</body>
-</html>
+
+{%endblock%}

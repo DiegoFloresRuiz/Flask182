@@ -32,10 +32,6 @@ def Guardar():
     flash('Guardado correctamente')
     return redirect(url_for('index'))
 
-@app.route('/consultar')
-def consultar():
-
-    return render_template('consultar.html')
 
 
 
