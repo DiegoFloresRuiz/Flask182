@@ -10,13 +10,17 @@
         <br>
         <br>
         <h2>¿Estás seguro que quieres elimarlo? </h2>
-        <form action="/borrar/{{ album.0 }}" method="POST">
+        <form action="/eliminaralbum/{{ album.0 }}" method="POST">
 
             <input type="text" name="txtTitulo" value="{{ album.1 }}" readonly>
             <input type="text" name="txtArtista" value="{{ album.2 }}" readonly>
             <input type="number" name="txtAnio" value="{{ album.3 }}" readonly>
 
-            <button type="submit"> Borrar </button>
+            
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-outline-secondary"> Borrar </button>
+              </div>
 
         </form>
 

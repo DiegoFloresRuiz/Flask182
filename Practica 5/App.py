@@ -48,7 +48,7 @@ def editar(id):
     curEditar=mysql.connection.cursor()
     curEditar.execute('select * from albums where id = %s',(id,))
     consulId=curEditar.fetchone() #fetchone porque solo vamos a jalar un solo registro
-    return render_template('editarAlbum.html',album=consulId)
+    return render_template('Editar.html',album=consulId)
 
 #ruta que realiza el query de actualización en la BD y redirecciona al index con msj de validación
 @app.route('/actualizar/<id>',methods=['POST']) 
@@ -70,7 +70,7 @@ def eliminaralbum(id):
     curEditar=mysql.connection.cursor()
     curEditar.execute('select * from albums where id = %s',(id,))
     consulId=curEditar.fetchone() #fetchone porque solo vamos a jalar un solo registro
-    return render_template('eliminaralbum.html',album=consulId)
+    return render_template('Eliminar.html',album=consulId)
  
 
 
