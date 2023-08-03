@@ -22,7 +22,7 @@
         </div>
 
         
-        
+
         <div class="d-grid gap-2">
             <button type="submit" class="btn btn-outline-dark"> Guardar </button>
           </div>
@@ -76,7 +76,7 @@
   {%with mensajes= get_flashed_messages() %}
     {% if mensajes%}
       {%for msj in mensajes%}
-          <h3> {{ msj }} </h3>
+          <h3 class="display-1 text-center mt-5 mb-5"> {{ msj }} </h3>
       {%endfor%}
     {% endif %}
   {%endwith%}

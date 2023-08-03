@@ -1,28 +1,22 @@
+{% extends 'plantilla.html' %}
 
-{%extends 'plantilla.html'%}
-
-{%block body%}
-
+{% block body %}
 <body>
     <center>
         <br>
         <h1>Eliminar Album </h1>
         <br>
         <br>
-        <h2>¿Estás seguro que quieres elimarlo? </h2>
+        <h2>¿Estás seguro que quieres eliminarlo? </h2>
         <form action="/eliminaralbum/{{ album.0 }}" method="POST">
 
             <input type="text" name="txtTitulo" value="{{ album.1 }}" readonly>
             <input type="text" name="txtArtista" value="{{ album.2 }}" readonly>
             <input type="number" name="txtAnio" value="{{ album.3 }}" readonly>
 
-            
-
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-outline-secondary"> Borrar </button>
               </div>
-
         </form>
-
     </center>
-{%endblock body%}
+{% endblock body %}

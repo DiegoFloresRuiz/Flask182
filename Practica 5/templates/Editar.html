@@ -4,20 +4,34 @@
 {%block body%}
 
 <body>
-    <center>
-        <br>
-        <h1>Actualizar Album </h1>
-        <br>
-        <br>
+    <h1 class="display-1 text-center mt-5 mb-5">Actualizar Album </h1>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-7"> 
+    <div class="card card-body">
+    
+        
+
         <form action="/actualizar/{{ album.0 }}" method="POST">
 
+            <div class="mb-3">
             <input type="text" name="txtTitulo" value="{{ album.1 }}">
+            </div>
+            
+            <div class="mb-3">
             <input type="text" name="txtArtista" value="{{ album.2 }}">
+            </div>
+
+            <div class="mb-3">
             <input type="number" name="txtAnio" value="{{ album.3 }}">
+            </div>
 
-            <button type="submit"> Actualizar </button>
-
+            <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-outline-dark"> Actualizar </button>
+            </div>
         </form>
-
-    </center>
+    </div> <!--targeta -->>
+    </div>
+        </div>
+    </div>
 {%endblock body%}
